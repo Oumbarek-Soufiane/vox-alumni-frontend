@@ -12,7 +12,7 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Illustration',
     description: "Une illustration vibrante d'un personnage à la peau bleue portant une coiffe à cornes, encadré par des instruments traditionnels.",
-    imageUrl:    '/art1.jpg', // 👈 تأكد واش .jpg ولا .png
+    imageUrl:    '/art1.jpeg', // 👈 تأكد واش .jpg ولا .png
   },
   {
     id:          'free-palestine',
@@ -23,7 +23,7 @@ export const ARTWORKS = [
     year:        2023,
     category:    'Illustration',
     description: "Un personnage solennel vêtu de vert et coiffé d'un keffieh, tenant délicatement une fleur orange sur fond noir.",
-    imageUrl:    '/img/bourhine2.jpg', 
+    imageUrl:    '/img/bourhine2.jpeg', 
   },
   {
     id:          'bourhine-3',
@@ -34,7 +34,7 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Illustration',
     description: "Troisième création digitale d'Abdallah Bourhine, explorant forme et couleur.",
-    imageUrl:    '/img/bourhine3.jpg',
+    imageUrl:    '/img/bourhine3.jpeg',
   },
 
   // ── Zeyati Walid (3 works) ───────────────────────────────────────────────
@@ -47,7 +47,7 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Portrait',
     description: "Un jeune homme aux cheveux bruns bouclés, vêtu d'un gilet marron, avec une expression candide.",
-    imageUrl:    '/img/walid1.jpg',
+    imageUrl:    '/img/walid1.jpeg',
   },
   {
     id:          'iben-batota',
@@ -58,7 +58,7 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Portrait',
     description: "Un voyageur barbu coiffé d'un turban vert, portant un parchemin dans le dos et tenant un livre rouge.",
-    imageUrl:    '/img/walid2.jpg',
+    imageUrl:    '/img/walid2.jpeg',
   },
   {
     id:          'lgazar',
@@ -69,7 +69,7 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Character Design',
     description: "Planche de conception d'un personnage cartoonesque bedonnant au gros nez rose et à la casquette rouge.",
-    imageUrl:    '/img/walid3.jpg',
+    imageUrl:    '/img/walid3.jpeg',
   },
 
   // ── Nabil Mimouni (3 works) ──────────────────────────────────────────────
@@ -82,7 +82,7 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Dessin Traditionnel',
     description: "Portrait réaliste au crayon d'Ellie, personnage principal du jeu The Last of Us.",
-    imageUrl:    '/img/nabil1.jpg',
+    imageUrl:    '/img/nabil1.jpeg',
   },
   {
     id:          'nabil-2',
@@ -93,7 +93,7 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Dessin Traditionnel',
     description: "Deuxième œuvre sur papier de Nabil Mimouni, maîtrise du trait et des ombres.",
-    imageUrl:    '/img/nabil2.jpg',
+    imageUrl:    '/img/nabil2.jpeg',
   },
   {
     id:          'tuk-ilu',
@@ -104,7 +104,7 @@ export const ARTWORKS = [
     year:        2025,
     category:    'Dessin Traditionnel',
     description: "Un dessin à l'encre représentant un personnage aux cheveux tentaculaires parmi des poissons volants.",
-    imageUrl:    '/img/nabil3.jpg',
+    imageUrl:    '/img/nabil3.jpeg',
   },
 
   // ── Yebda Nada (3 works) ─────────────────────────────────────────────────
@@ -117,7 +117,7 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Illustration',
     description: "Illustration expressive où le regard se transforme, mêlant réalisme et abstraction.",
-    imageUrl:    '/img/nada1.jpg',
+    imageUrl:    '/img/nada1.jpeg',
   },
   {
     id:          'nada-2',
@@ -128,7 +128,7 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Illustration',
     description: "Deuxième illustration de Nada, jouant sur les contrastes et la composition.",
-    imageUrl:    '/img/nada2.jpg',
+    imageUrl:    '/img/nada2.jpeg',
   },
   {
     id:          'nada-3',
@@ -139,6 +139,6 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Illustration',
     description: "Troisième œuvre de Nada, exploration des formes organiques et de la ligne.",
-    imageUrl:    '/img/nada3.jpg',
+    imageUrl:    '/img/nada3.jpeg',
   },
 ];
