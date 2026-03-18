@@ -1,0 +1,187 @@
+/* ═══════════════════════════════════════════════════════════════
+   VOX Alumni — Design System
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --primary:       #1a1a1a;
+  --secondary:     #f4f1ea;
+  --accent:        #3369E8;
+  --accent-light:  #6B93ED;
+  --accent-pale:   #EAF0FC;
+  --accent-dark:   #1d4ed8;
+  --text:          #2d2d2d;
+  --text-muted:    #888;
+  --border:        rgba(26, 26, 26, 0.1);
+  --surface:       #ffffff;
+  --shadow-sm:     0 2px 8px rgba(0,0,0,0.07);
+  --shadow-md:     0 8px 32px rgba(0,0,0,0.10);
+  --radius:        10px;
+  --font-display:  'Playfair Display', Georgia, serif;
+  --font-body:     'Work Sans', sans-serif;
+  --transition:    0.18s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--secondary);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ── Utility animations ────────────────────────────────────────── */
+@keyframes fadeUp  { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn  { from { opacity:0; } to { opacity:1; } }
+@keyframes spin    { to { transform:rotate(360deg); } }
+@keyframes shimmer { 0% { background-position:200% 0; } 100% { background-position:-200% 0; } }
+@keyframes scaleIn { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
+@keyframes carouselProgress { from { width:0%; } to { width:100%; } }
+
+/* ════════════════════════════════════════════════════════════════
+   GLOBAL BUTTON HOVER STATES
+   Every interactive element gets a clear hover + active signal.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Carousel arrows ────────────────────────────────────────────── */
+.carousel-arrow:hover {
+  background: rgba(255,255,255,.22) !important;
+  border-color: rgba(255,255,255,.35) !important;
+  transform: translateY(-50%) scale(1.08) !important;
+}
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.96) !important;
+}
+
+/* ── Carousel dot indicators ────────────────────────────────────── */
+.carousel-dot:hover {
+  background: rgba(255,255,255,.7) !important;
+  transform: scale(1.3) !important;
+}
+
+/* ── Nav: change-name button ────────────────────────────────────── */
+.nav-change-btn:hover {
+  background: rgba(255,255,255,.18) !important;
+  border-color: rgba(255,255,255,.4) !important;
+}
+.nav-change-btn:active {
+  transform: scale(0.94);
+}
+
+/* ── NameGate submit button ─────────────────────────────────────── */
+.namegate-btn:hover:not(:disabled) {
+  background: #1d4ed8 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(51,105,232,.35);
+}
+.namegate-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ── Comment section: toggle / comment button ───────────────────── */
+.vox-toggle-btn:hover {
+  background: #EAF0FC !important;
+  border-color: #3369E8 !important;
+  color: #3369E8 !important;
+}
+.vox-toggle-btn:active { transform: scale(0.96); }
+
+/* ── Comment submit / reply / save buttons ──────────────────────── */
+.vox-submit-btn:hover:not(:disabled) {
+  background: #1d4ed8 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(51,105,232,.3);
+}
+.vox-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ── Cancel buttons ─────────────────────────────────────────────── */
+.vox-cancel-btn:hover {
+  background: #f4f4f4 !important;
+  border-color: rgba(26,26,26,.25) !important;
+}
+.vox-cancel-btn:active { transform: scale(0.96); }
+
+/* ── Edit icon button (✏️ pencil) ───────────────────────────────── */
+.vox-icon-edit:hover {
+  opacity: 1 !important;
+  background: #EAF0FC !important;
+  color: #3369E8 !important;
+  border-radius: 5px;
+}
+.vox-icon-edit:active { transform: scale(0.88); }
+
+/* ── Delete icon button (🗑 trash) ──────────────────────────────── */
+.vox-icon-delete:hover {
+  opacity: 1 !important;
+  background: #fee2e2 !important;
+  color: #dc2626 !important;
+  border-radius: 5px;
+}
+.vox-icon-delete:active { transform: scale(0.88); }
+
+/* ── Reaction pills ─────────────────────────────────────────────── */
+.reaction-pill:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 3px 10px rgba(51,105,232,.18);
+}
+.reaction-pill:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+/* ── Add-reaction button ────────────────────────────────────────── */
+.vox-add-reaction:hover {
+  background: #EAF0FC !important;
+  border-color: #3369E8 !important;
+  border-style: solid !important;
+  color: #3369E8 !important;
+}
+
+/* ── Emoji picker buttons ───────────────────────────────────────── */
+.vox-picker-btn:hover {
+  background: #EAF0FC !important;
+  transform: scale(1.2);
+}
+.vox-picker-btn:active { transform: scale(1.0); }
+
+/* ── Reply button ───────────────────────────────────────────────── */
+.vox-reply-btn:hover {
+  color: #3369E8 !important;
+}
+
+/* ── Delete confirm button ──────────────────────────────────────── */
+.vox-delete-confirm-btn:hover:not(:disabled) {
+  background: #dc2626 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220,38,38,.3);
+}
+.vox-delete-confirm-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* ── Artwork card hover lift ────────────────────────────────────── */
+.artwork-card {
+  transition: transform .22s ease, box-shadow .22s ease !important;
+}
+.artwork-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,.13) !important;
+}
+.artwork-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ── FontAwesome icon colours in comments ───────────────────────── */
+.fa-pen-to-square { color: #f1b101; transition: color var(--transition); }
+.fa-trash-can     { color: #ff0000; transition: color var(--transition); }
