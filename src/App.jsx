@@ -113,20 +113,7 @@ function ArtworkCard({ art }) {
       {/* Image */}
       <div style={s.imageWrap}>
         {art.imageUrl
-          ? <img src="/img/bourhine3.jpeg" alt={art.title} style={s.image} loading="lazy" />
-          : (
-            <div style={s.placeholder}>
-              <span style={s.placeholderLetter}>{art.title[0]}</span>
-              <span style={s.placeholderHint}>image non trouvée</span>
-            </div>
-          )
-        }
-        <span style={s.categoryBadge}>{art.category}</span>
-      </div>
-
-      <div style={s.imageWrap}>
-        {art.imageUrl
-          ? <img src="/img/bourhine2.jpeg" alt={art.title} style={s.image} loading="lazy" />
+          ? <img src={art.imageUrl} alt={art.title} style={s.image} loading="lazy" />
           : (
             <div style={s.placeholder}>
               <span style={s.placeholderLetter}>{art.title[0]}</span>
