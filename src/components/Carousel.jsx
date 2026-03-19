@@ -20,7 +20,7 @@ import { ARTWORKS } from '../artworks'
 const FEATURED = [
   // student name → pick the first artwork matching that student
   'Abdallah Bourhine',
-  'Zeyati Walid',
+  'Zyati Walid',
   'Nabil Mimouni',
   'Yebda Nada',
 ].map(student => ARTWORKS.find(a => a.student === student)).filter(Boolean)
