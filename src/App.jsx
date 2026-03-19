@@ -106,37 +106,32 @@ function Gallery() {
 // ── ArtworkCard ───────────────────────────────────────────────────────────────
 
 function ArtworkCard({ art }) {
-  const imageSrc = new URL(art.imageUrl, window.location.origin).href;
+  // هاد السطر كيضمن بلي src غاتكون ديما String حقيقية
+  const imageSrc = typeof art.imageUrl === 'string' 
+    ? art.imageUrl 
+    : (art.imageUrl?.default || art.imageUrl);
   return (
     // className="artwork-card" is what useCardReveal targets
     <article className="artwork-card" style={s.card}>
 
       {/* Image */}
       <div style={s.imageWrap}>
-        
-        {art.imageUrl
-          ? <img
-            src={imageSrc}
-            alt={art.title}
-            style={s.image}
-            loading="lazy"
-            onError={(e) => {
-              // هاد اللعيبة إلى مابانتش التصويرة بـ /img/، كيحاول يقلب عليها برا (لـ art1)
-              if (!e.target.src.includes('/img/')) {
-                e.target.src = '/img' + art.imageUrl;
-              }
-            }}
-          />
-          : (
-            <div style={s.placeholder}>
-              <span style={s.placeholderLetter}>{art.title[0]}</span>
-              <span style={s.placeholderHint}>image non trouvée</span>
-            </div>
-          )
-        }
+        <img 
+          src={imageSrc} 
+          alt={art.title} 
+          style={s.image} 
+          loading="lazy" 
+          // هاد اللعيبة هي "Plan B" إذا Vite خسر لينا الرابط
+          onError={(e) => {
+            if (e.target.src.includes('[object%20Module]')) {
+               e.target.src = art.imageUrl.startsWith('/img/') 
+                 ? art.imageUrl 
+                 : '/img' + art.imageUrl;
+            }
+          }}
+        />
         <span style={s.categoryBadge}>{art.category}</span>
       </div>
-
       {/* Body */}
       <div style={s.cardBody}>
 
