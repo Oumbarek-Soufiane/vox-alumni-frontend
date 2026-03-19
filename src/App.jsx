@@ -12,13 +12,13 @@
  *  4. Footer          (logo image 140px)
  */
 
-import { useUser }       from './context/UserContext'
-import NameGate          from './components/NameGate'
-import CommentsSection   from './components/CommentsSection'
-import Carousel          from './components/Carousel'
-import RevealText        from './components/RevealText'
-import useCardReveal     from './hooks/useCardReveal'
-import { ARTWORKS }      from './artworks'
+import { useUser } from './context/UserContext'
+import NameGate from './components/NameGate'
+import CommentsSection from './components/CommentsSection'
+import Carousel from './components/Carousel'
+import RevealText from './components/RevealText'
+import useCardReveal from './hooks/useCardReveal'
+import { ARTWORKS } from './artworks'
 import './styles/global.css'
 
 // ── Gallery ───────────────────────────────────────────────────────────────────
@@ -113,7 +113,18 @@ function ArtworkCard({ art }) {
       {/* Image */}
       <div style={s.imageWrap}>
         {art.imageUrl
-          ? <img src={art.imageUrl} alt={art.title} style={s.image} loading="lazy" />
+          ? <img
+            src={String(art.imageUrl).replace('[object Module]', art.imageUrl)}
+            alt={art.title}
+            style={s.image}
+            loading="lazy"
+            onError={(e) => {
+              // هاد اللعيبة إلى مابانتش التصويرة بـ /img/، كيحاول يقلب عليها برا (لـ art1)
+              if (!e.target.src.includes('/img/')) {
+                e.target.src = '/img' + art.imageUrl;
+              }
+            }}
+          />
           : (
             <div style={s.placeholder}>
               <span style={s.placeholderLetter}>{art.title[0]}</span>
@@ -292,8 +303,8 @@ const s = {
   },
 
   // Card body
-  cardBody:    { padding: '16px 18px 18px' },
-  cardHeader:  { display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 },
+  cardBody: { padding: '16px 18px 18px' },
+  cardHeader: { display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 },
   avatar: {
     width: 36, height: 36, borderRadius: '50%',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
