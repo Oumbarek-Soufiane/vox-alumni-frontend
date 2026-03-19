@@ -1,4 +1,5 @@
-
+import bourhine2 from './assets/img/bourhine2.jpeg'
+import walid1    from './assets/img/walid1.jpeg'
 export const ARTWORKS = [
   // ── Abdallah Bourhine (3 works) ──────────────────────────────────────────
   {
@@ -21,7 +22,7 @@ export const ARTWORKS = [
     year:        2023,
     category:    'Illustration',
     description: "Un personnage solennel vêtu de vert et coiffé d'un keffieh, tenant délicatement une fleur orange sur fond noir.",
-    imageUrl:    '/img/bourhine2.jpeg', 
+    imageUrl:    bourhine2, 
   },
   {
     id:          'bourhine-3',
@@ -45,7 +46,7 @@ export const ARTWORKS = [
     year:        2024,
     category:    'Portrait',
     description: "Un jeune homme aux cheveux bruns bouclés, vêtu d'un gilet marron, avec une expression candide.",
-    imageUrl:    '/img/walid1.jpeg',
+    imageUrl:    walid1,
   },
   {
     id:          'iben-batota',
