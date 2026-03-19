@@ -106,15 +106,17 @@ function Gallery() {
 // ── ArtworkCard ───────────────────────────────────────────────────────────────
 
 function ArtworkCard({ art }) {
+  const imageSrc = new URL(art.imageUrl, window.location.origin).href;
   return (
     // className="artwork-card" is what useCardReveal targets
     <article className="artwork-card" style={s.card}>
 
       {/* Image */}
       <div style={s.imageWrap}>
+        
         {art.imageUrl
           ? <img
-            src={String(art.imageUrl).replace('[object Module]', art.imageUrl)}
+            src={imageSrc}
             alt={art.title}
             style={s.image}
             loading="lazy"
