@@ -12,13 +12,13 @@
  *  4. Footer          (logo image 140px)
  */
 
-import { useUser } from './context/UserContext'
-import NameGate from './components/NameGate'
-import CommentsSection from './components/CommentsSection'
-import Carousel from './components/Carousel'
-import RevealText from './components/RevealText'
-import useCardReveal from './hooks/useCardReveal'
-import { ARTWORKS } from './artworks'
+import { useUser }       from './context/UserContext'
+import NameGate          from './components/NameGate'
+import CommentsSection   from './components/CommentsSection'
+import Carousel          from './components/Carousel'
+import RevealText        from './components/RevealText'
+import useCardReveal     from './hooks/useCardReveal'
+import { ARTWORKS }      from './artworks'
 import './styles/global.css'
 
 // ── Gallery ───────────────────────────────────────────────────────────────────
@@ -106,32 +106,24 @@ function Gallery() {
 // ── ArtworkCard ───────────────────────────────────────────────────────────────
 
 function ArtworkCard({ art }) {
-  // هاد السطر كيضمن بلي src غاتكون ديما String حقيقية
-  const imageSrc = typeof art.imageUrl === 'string' 
-    ? art.imageUrl 
-    : (art.imageUrl?.default || art.imageUrl);
   return (
     // className="artwork-card" is what useCardReveal targets
     <article className="artwork-card" style={s.card}>
 
       {/* Image */}
       <div style={s.imageWrap}>
-        <img 
-          src={imageSrc} 
-          alt={art.title} 
-          style={s.image} 
-          loading="lazy" 
-          // هاد اللعيبة هي "Plan B" إذا Vite خسر لينا الرابط
-          onError={(e) => {
-            if (e.target.src.includes('[object%20Module]')) {
-               e.target.src = art.imageUrl.startsWith('/img/') 
-                 ? art.imageUrl 
-                 : '/img' + art.imageUrl;
-            }
-          }}
-        />
+        {art.imageUrl
+          ? <img src={art.imageUrl} alt={art.title} style={s.image} loading="lazy" />
+          : (
+            <div style={s.placeholder}>
+              <span style={s.placeholderLetter}>{art.title[0]}</span>
+              <span style={s.placeholderHint}>image non trouvée</span>
+            </div>
+          )
+        }
         <span style={s.categoryBadge}>{art.category}</span>
       </div>
+
       {/* Body */}
       <div style={s.cardBody}>
 
@@ -300,8 +292,8 @@ const s = {
   },
 
   // Card body
-  cardBody: { padding: '16px 18px 18px' },
-  cardHeader: { display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 },
+  cardBody:    { padding: '16px 18px 18px' },
+  cardHeader:  { display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 },
   avatar: {
     width: 36, height: 36, borderRadius: '50%',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
