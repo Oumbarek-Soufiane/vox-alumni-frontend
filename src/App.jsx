@@ -93,7 +93,7 @@ function Gallery() {
       {/* ── Footer ── */}
       <footer style={s.footer}>
         <img
-          src="/img/walid3.jpeg"
+          src="/img/Artboard 1@4x.png"
           alt="VOX Alumni"
           style={{ height: 140, width: 'auto', marginBottom: 10, objectFit: 'contain', opacity: 0.6 }}
         />
